@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="icon/x-image" href="./asserts/color-wheel.png">
+</head>
+<body>
+    <nav id="navBar">
+        <div class="navbar">
+            <div class="logo">
+                <img src="./asserts/brush.png" alt="/">
+                <h2>Gradient Generator</h2>
+            </div>
+            <div class="output">
+                <input type="text" id="output" value="background-image: linear-gradient(to right, #00B4DB, #0083B0);" readonly>
+                <img src="./asserts/copy.png" title="Copy to clipboard" onclick="copyToClipboard()" alt="/" width="25">
+            </div>
+            <div class="menu">
+                <img src="./asserts/color-picker.png" onclick="show()" alt="/">
+            </div>
+        </div>
+    </nav>
+
+    <div class="hide" id="hide" onclick="hideNavBar()">
+        <span id="arrow">&#65514;</span>
+    </div>
+
+    <div class="displayOutput" id="displayOutput"></div>
+
+    <div class="color-picker" id="color-picker">
+        <span id="close" onclick="hide()">&times;</span>
+        <form>
+            <div class="input">
+                <select class="form-select" id="gradient-type" onchange="showDiv()" onclick="this.setAttribute('value', this.value);" value="" required>
+                    <option value="" hidden></option>
+                    <option value="linear-gradient">Linear gradient</option>
+                    <option value="radial-gradient">Radial gradient</option>
+                    <option value="conic-gradient">Conic gradient</option>
+                </select>
+                <label for="gradient-type" class="label">Select gradient type</label>
+            </div>
+            <div class="input linear" id="linear-gradient">
+                <select class="form-select" id="direction" onclick="this.setAttribute('value', this.value);" value="" required>
+                    <option value="" hidden></option>
+                    <option value="to top">to top</option>
+                    <option value="to left">to left</option>
+                    <option value="to bottom">to bottom</option>
+                    <option value="to right">to right</option>
+                    <option value="to top left">to top left</option>
+                    <option value="to top right">to top right</option>
+                    <option value="to bottom left">to bottom left</option>
+                    <option value="to bottom right">to bottom right</option>
+                </select>
+                <label for="direction" class="label">Select direction</label>
+            </div>
+            <div class="input radial" id="radial-gradient">
+                <select class="form-select" id="shape" onclick="this.setAttribute('value', this.value);" value="" required>
+                    <option value="" hidden></option>
+                    <option value="ellipse">ellipse</option>
+                    <option value="circle">circle</option>
+                </select>
+                <label for="shape" class="label">Select shape</label>
+            </div>
+           <div class="conic" id="conic-gradient">
+                <div class="input">
+                    <input type="number" placeholder=" " class="form-input" id="from-angle" required>
+                    <label for="from-angle" class="label">Enter from angle</label>
+                </div>
+                <div class="at-position ">
+                    <div class="input ">
+                        <input type="number" placeholder=" " class="form-input" id="x-position" required>
+                        <label for="x-position" class="label">Enter x-axis position</label>
+                    </div>
+                    <div class="input ">
+                        <input type="number" placeholder=" " class="form-input" id="y-position" required>
+                        <label for="y-position" class="label">Enter y-axis position</label>
+                    </div>
+                </div>
+            </div>
+            <div class="color_container">
+                <div class="color">
+                    <div class="picker">
+                        <input type="color" id="color_picker" value="#11bb52">
+                        <p id="color_output">#11bb52</p> 
+                    </div>
+                    <div class="button">
+                        <button id="add" onclick="addColor()" type="button">Add color</button>
+                        <button id="del" onclick="deleteColor()" type="button">Delete color</button>
+                    </div>
+                </div>
+                <input type="text" id="color_display" readonly>
+            </div>
+            <button type="button" onclick="applyGradient()" id="apply">Apply</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

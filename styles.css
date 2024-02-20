@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+nav{
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    z-index: 10;
+    height: 65px;
+    overflow-x: hidden;
+    transition: ease-in-out 1s;
+}
+
+.hideNav{
+    /* top: -100%; */
+    transform: translateY(-100%);
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logo img{
+    width: 35px;
+    transition: 0.3s;
+}
+
+.logo h2{
+    font-family: "Cinzel", serif;
+    transition: 0.3s; 
+}
+
+.output{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: rgb(244, 242, 242);
+    width: 400px;
+    padding: 5px;
+    border-radius: 22px;
+}
+
+#output{
+    border: none;
+    outline: none;
+    width: 350px;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgb(244, 242, 242);
+    transition: 0.3s;
+}
+
+.output img, .menu img{
+    cursor: pointer;
+}
+
+.displayOutput{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to right, #00b3db, #0083B0);
+}
+
+.color-picker{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 100;
+    background-color: white;
+    width: 30%;
+    height: 100%;
+    box-shadow: -7px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    overflow-x: hidden;
+    transition: ease-in-out 0.5s;
+}
+
+.menu img{
+    width: 30px;
+}
+
+@media only screen and (max-width: 761px){
+
+    nav{
+        height: 55px;
+    }
+
+    #output{
+        display: none;
+        transition: 0.3s;
+    }
+
+    .output{
+        background-color: white;
+        width: 0;
+        transition: 0.3s;
+    }
+
+    .logo img{
+        width: 25px;
+        transition: 0.3s;
+    }
+
+    .logo h2{
+        font-size: 15px;
+        transition: 0.3s;
+    }
+
+    .color-picker{
+        width: 100%;
+    }
+
+    .menu img{
+        width: 25px;
+    }
+}
+
+.active{
+    right: 0;
+    transition: ease-in-out 0.5s;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 15px;
+}
+
+#close{
+    cursor: pointer;
+    position: absolute;
+    top: -5px;
+    right: 0;
+    font-size: 30px;
+}
+
+.header h1{
+    font-family: "Cinzel", serif; 
+}
+
+.color_container{
+    width: 100%;
+    background-color: rgb(244, 242, 242);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+#color_display{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
+}
+
+.color{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.input{
+    position: relative;
+    margin: 20px 0;
+    transition: 0.5s;
+}
+
+.input input, .input select{
+    width: 100%;
+    padding: 7px;
+    border-radius: 10px;
+    border: 2px solid black;
+    outline: none;
+    font-size: 18px;
+}
+
+.label{
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+input:focus, select:focus{
+    border: 2px solid rgb(4, 126, 233);
+}
+
+.form-input:focus ~ .label, 
+.form-select:focus ~ .label, 
+.form-input:not(:placeholder-shown) ~ .label, 
+.form-select:not([value=""]) ~ .label{
+    top: 0;
+    font-size: 12px;
+    padding: 0 5px;
+    background-color: white;
+    transition: 0.5s;
+}
+
+.linear, .radial, .conic{
+    display: none;
+}
+
+#apply{
+    text-align: center;
+    width: 100%;
+    padding: 7px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(4, 126, 233);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#reset{
+    text-align: center;
+    width: 100%;
+    padding: 7px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(233, 195, 4);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#add, #del{
+    width: 100px;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+#add{
+    background-color: #0da85f;
+}
+
+#del{
+    background-color: #fd2e2e;
+}
+
+/* Styling the input[type = "color" */
+ 
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+	width: 60px;
+	height: 60px;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+.picker{
+    margin: 10px;
+    padding: 10px;
+}
+
+
+.hide{
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    z-index: 20;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.top{
+    top: 0;
+    transition: 1.5s;
+}
+
+.hide span{
+    font-size: 20px;
+}
